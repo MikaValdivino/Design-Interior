@@ -102,6 +102,28 @@ img {
   top: 200px;
 }
 
+/* Seção "home" */
+#home {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupará 100% da altura da viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#home .hero {
+  width: 100%;
+  height: 100%;
+}
+
+#home .hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem cobrir toda a área da seção */
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -321,7 +343,6 @@ nav p {
   text-align: center;
   overflow: hidden;
   position: relative;
-  height: 100%;
 }
 
 #projects h2 {
@@ -340,7 +361,7 @@ nav p {
 
 .project-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2em;
 }
 
@@ -398,6 +419,39 @@ nav p {
 .project-link:hover {
   color: var(--color-accent);
   border-color: var(--color-accent);
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+  .project-item {
+    width: 100%; /* Faz com que cada projeto ocupe 100% da largura em telas menores */
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem; /* Ajuste o tamanho da fonte */
+  }
+
+  .project-info p {
+    font-size: 1rem;
+  }
+
+  .project-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-info h3 {
+    font-size: 1.2rem; /* Reduz ainda mais o tamanho da fonte para telas muito pequenas */
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+  }
+
+  .project-link {
+    font-size: 0.9rem;
+  }
 }
 
 /* Seção de Serviços */
