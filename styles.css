@@ -1,0 +1,574 @@
+:root {
+  --color-accent: #c9c2b9;
+}
+
+body {
+  overflow-x: hidden; /* Esconde a barra de rolagem horizontal */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.overlay-content {
+  width: 40%;
+}
+
+.images {
+  position: relative;
+  height: 550px;
+}
+
+.img-holder {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.img-holder img {
+  position: absolute;
+  top: 0;
+  left: -120%;
+}
+
+.text {
+  position: relative;
+  margin: 1em 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.counter,
+.logo p {
+  font-size: 160px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.counter p {
+  line-height: 100%;
+}
+
+.counter > p > span,
+.logo > p > span {
+  position: relative;
+  z-index: -2;
+  color: black;
+}
+
+.logo {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo > p {
+  line-height: 100%;
+}
+
+.logo > p > span {
+  position: relative;
+  top: 200px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1em;
+  background-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+nav.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Navbar transparente ao rolar */
+  padding: 0.5em; /* Navbar mais compacta ao rolar */
+}
+
+nav > div {
+  flex: 1;
+}
+
+nav a,
+nav p {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.shop {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2em;
+}
+
+/* Menu inicial fechado */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: right 0.5s ease;
+  z-index: 1000;
+}
+
+.nav-links ul {
+  list-style: none;
+  text-align: center;
+}
+
+.nav-links ul li {
+  margin: 1em 0;
+}
+
+.nav-links ul li a {
+  font-size: 2rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001; /* Para que o botão "Menu" esteja sempre no topo */
+}
+
+.menu-toggle .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.menu-open .nav-links {
+  right: 0; /* Quando a classe 'menu-open' é adicionada, o menu aparece */
+}
+
+.menu-open .menu-toggle .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-open .menu-toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .menu-toggle .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero img {
+  transform: scale(2);
+}
+
+.hero-copy {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-copy h1 {
+  font-weight: 400;
+  font-size: 30vw;
+  color: var(--color-accent);
+  line-height: 100%;
+}
+
+.hero-copy h1 span {
+  position: relative;
+  top: 30vw;
+}
+
+@media (max-width: 900px) {
+  .overlay-content {
+    width: 75%;
+  }
+
+  .counter,
+  .logo p {
+    font-size: 100px;
+  }
+}
+
+/* About Section */
+
+#about {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  padding: 100px 20px; /* Padding mais responsivo */
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-header h2 {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-header p {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  line-height: 1.8;
+}
+
+.about-image img {
+  width: 20%;
+  height: auto;
+  border-radius: 50px;
+  margin: 50px 0;
+}
+
+.about-team h3 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--color-accent);
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  margin: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-5px); /* Leve efeito de elevação */
+}
+
+.team-member img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.team-member:hover img {
+  transform: scale(1.1);
+}
+
+/* Seção de Projetos */
+#projects {
+  background-color: #1e1e1e;
+  padding: 6em 2em;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+#projects h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 3em;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+}
+
+.project-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.5em;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.project-info p {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 1.2em;
+}
+
+.project-link {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 2px solid #333;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.project-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Seção de Serviços */
+#services {
+  background-color: #1e1e1e;
+  padding: 6em 2em;
+  text-align: center;
+  color: var(--color-accent);
+}
+
+#services h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 3em;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2em;
+}
+
+.service-item {
+  background-color: #333;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-item h3 {
+  font-size: 1.8rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5em;
+}
+
+.service-item p {
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 1.5em;
+}
+
+.service-link {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-accent);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.service-link:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Seção de Contato */
+#contact {
+  background-color: #1e1e1e; /* Cor de fundo mais suave */
+  color: var(--color-accent);
+  padding: 6em 2em;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px; /* Largura máxima para um layout mais elegante */
+  margin: 0 auto;
+}
+
+#contact h2 {
+  font-size: 3.5rem; /* Tamanho de fonte maior */
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  text-transform: uppercase; /* Estilo de texto em maiúsculas */
+}
+
+#contact p {
+  font-size: 1.1rem; /* Fonte para a descrição */
+  margin-bottom: 2em; /* Espaçamento inferior */
+  color: #d7cfc5; /* Cor sutil para o texto */
+}
+
+.form-group {
+  margin-bottom: 2em; /* Aumentar espaço entre os grupos de formulário */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1.2em;
+  margin-top: 0.5em;
+  border: 2px solid #444; /* Borda mais visível */
+  border-radius: 5px;
+  font-size: 1.1rem;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background-color: #fff; /* Mudança de fundo ao focar */
+}
+
+button {
+  background-color: #d7cfc5;
+  padding: 1em 2em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  text-transform: uppercase; /* Maiúsculas para o botão */
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Informações de Contato */
+.contact-info {
+  margin-top: 3em; /* Espaçamento superior */
+  background-color: rgba(
+    215,
+    207,
+    197,
+    0.1
+  ); /* Fundo leve para destacar a seção */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 2em; /* Espaçamento interno */
+}
+
+.contact-info h3 {
+  font-size: 2rem; /* Tamanho do título */
+  margin-bottom: 1em; /* Espaçamento inferior */
+}
+
+.contact-info p {
+  font-size: 1rem; /* Tamanho da fonte */
+  margin: 0.5em 0; /* Espaçamento entre parágrafos */
+}
+
+/* Footer */
+
+footer {
+  background-color: #1e1e1e; /* Cor de fundo escura */
+  color: #b0b0b0; /* Cor do texto clara */
+  padding: 3em 0; /* Padding para mais espaço */
+  text-align: center; /* Centraliza o conteúdo */
+  border-top: 1px solid #444; /* Borda discreta no topo */
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.7); /* Sombra no topo */
+}
+
+.footer-content {
+  max-width: 1200px; /* Limita a largura do conteúdo */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  padding: 0 1.5em; /* Padding lateral */
+}
