@@ -1,6 +1,6 @@
 # Landing Page Design Interior 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e9e10e34-aa80-4005-8036-f9f924cc1d91/deploy-status)](https://app.netlify.com/sites/super-cucurucho-5d132a/deploys) 
+[Visite o site clicando aqui](https://super-cucurucho-5d132a.netlify.app)
 
 ![Texto alternativo](house-design.png)
 
